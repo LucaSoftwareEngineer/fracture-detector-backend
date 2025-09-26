@@ -33,6 +33,8 @@ public class SecurityConfig {
                                 .requestMatchers("/api/auth/login").permitAll()
                                 .requestMatchers("/api/user/register").permitAll()
                                 .requestMatchers("/api/user/types/list").permitAll()
+                                .requestMatchers("/api/password/reset").permitAll()
+                                .requestMatchers("/api/password/update").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

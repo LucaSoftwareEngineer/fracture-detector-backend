@@ -3,6 +3,7 @@ package fracture.detector.backend.user;
 import fracture.detector.backend.accounttype.AccountType;
 import jakarta.persistence.*;
 import lombok.*;
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
@@ -29,6 +30,12 @@ public class User {
 
   @Column(name="password")
   private String password;
+
+  @Column(name="opt_reset_password")
+  private String optResetPassword;
+
+  @Column(name="opt_expiration")
+  private LocalDateTime optExpiration;
 
   @ManyToOne
   @JoinColumn(name = "account_type_id", nullable = false)
