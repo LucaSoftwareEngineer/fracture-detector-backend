@@ -1,6 +1,6 @@
 package fracture.detector.backend.user;
 
-import fracture.detector.backend.accounttype.AccountTypeService;
+import fracture.detector.backend.account.type.AccountTypeService;
 import fracture.detector.backend.config.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

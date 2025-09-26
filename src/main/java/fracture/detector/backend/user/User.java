@@ -1,6 +1,6 @@
 package fracture.detector.backend.user;
 
-import fracture.detector.backend.accounttype.AccountType;
+import fracture.detector.backend.account.type.AccountType;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;

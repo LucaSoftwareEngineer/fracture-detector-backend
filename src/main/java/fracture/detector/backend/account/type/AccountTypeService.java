@@ -1,4 +1,4 @@
-package fracture.detector.backend.accounttype;
+package fracture.detector.backend.account.type;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

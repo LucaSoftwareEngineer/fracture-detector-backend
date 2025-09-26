@@ -1,6 +1,5 @@
-package fracture.detector.backend.accounttype;
+package fracture.detector.backend.account.type;
 
-import fracture.detector.backend.accounttype.AccountType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

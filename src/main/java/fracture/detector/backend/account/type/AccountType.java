@@ -1,4 +1,4 @@
-package fracture.detector.backend.accounttype;
+package fracture.detector.backend.account.type;
 
 import fracture.detector.backend.user.User;
 import jakarta.persistence.*;

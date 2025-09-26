@@ -1,6 +1,5 @@
-package fracture.detector.backend.accounttype;
+package fracture.detector.backend.account.type;
 
-import fracture.detector.backend.accounttype.AccountType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
