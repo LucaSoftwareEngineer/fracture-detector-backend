@@ -89,7 +89,7 @@ public class PasswordResetService {
         MAIL_TEMPLATE = MAIL_TEMPLATE.concat("Gentile cliente, \n");
         MAIL_TEMPLATE = MAIL_TEMPLATE.concat("le confermiamo di aver ricevuto la sua richiesta di modifica della password \n");
         MAIL_TEMPLATE = MAIL_TEMPLATE.concat("può modificarla recandoti al seguente link: \n");
-        MAIL_TEMPLATE = MAIL_TEMPLATE.concat("http://localost:4200/update/password \n");
+        MAIL_TEMPLATE = MAIL_TEMPLATE.concat("http://localhost:4200/password/update\n");
         MAIL_TEMPLATE = MAIL_TEMPLATE.concat("ed inserendo il seguente codice quando ti verrà richiesto \n");
         MAIL_TEMPLATE = MAIL_TEMPLATE.concat("Codice: "+String.valueOf(otp)+" \n");
         MAIL_TEMPLATE = MAIL_TEMPLATE.concat("cordiali saluti \n");
