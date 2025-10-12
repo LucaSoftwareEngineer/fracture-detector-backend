@@ -35,6 +35,8 @@ public class SecurityConfig {
                                 .requestMatchers("/api/user/types/list").permitAll()
                                 .requestMatchers("/api/password/reset").permitAll()
                                 .requestMatchers("/api/password/update").permitAll()
+                                .requestMatchers("/api/user/token/check").permitAll()
+                                .requestMatchers("/api/user/details").authenticated()
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

@@ -8,8 +8,12 @@ import lombok.Setter;
 @Setter
 public class UserDetailsResponse {
 
-    private Long id;
     private String username;
-    private AccountType accountType;
+    private String name;
+    private String surname;
+    private String type;
+    private int numeroAnalisiConFrattura;
+    private int numeroAnalisiSenzaFrattura;
+    private int percentualeMediaAccuratezzaAnalisi;
 
 }

@@ -38,10 +38,19 @@ public class UserService {
             new UsernameNotFoundException("utente non trovato");
         }
         UserDetailsResponse res = new UserDetailsResponse();
-        res.setId(user.getIdUser());
         res.setUsername(user.getUsername());
-        res.setAccountType(user.getAccountType());
+        res.setName(user.getName());
+        res.setSurname(user.getSurname());
+        res.setType(user.getAccountType().getDescription());
+        res.setNumeroAnalisiConFrattura(0);
+        res.setNumeroAnalisiSenzaFrattura(0);
+        res.setPercentualeMediaAccuratezzaAnalisi(0);
         return res;
+    }
+
+    public Boolean tokenCheck(String token) {
+        String username = jwtUtil.extractUsername(token);
+        return jwtUtil.validateToken(token, username);
     }
 
 }

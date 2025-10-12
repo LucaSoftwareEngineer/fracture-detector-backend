@@ -22,4 +22,22 @@ public class UserController {
         }
     }
 
+    @PostMapping("/token/check")
+    public ResponseEntity<TokenCheckResponse> tokenCheck(@RequestBody TokenCheckRequest request) {
+        if (userService.tokenCheck(request.getToken())) {
+            return ResponseEntity.ok().body(new TokenCheckResponse(true));
+        }
+        return ResponseEntity.ok().body(new TokenCheckResponse(false));
+    }
+
+    @GetMapping("/details")
+    public ResponseEntity<UserDetailsResponse> getUserDetails(@RequestHeader(name = "Authorization") String token) {
+        try {
+            return ResponseEntity.ok().body(userService.getUserDetails(token));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+    }
+
+
 }
