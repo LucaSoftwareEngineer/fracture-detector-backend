@@ -37,6 +37,7 @@ public class SecurityConfig {
                                 .requestMatchers("/api/password/update").permitAll()
                                 .requestMatchers("/api/user/token/check").permitAll()
                                 .requestMatchers("/api/user/details").authenticated()
+                                .requestMatchers("/api/analisi/frattura/new").authenticated()
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

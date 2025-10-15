@@ -1,9 +1,11 @@
 package fracture.detector.backend.user;
 
 import fracture.detector.backend.account.type.AccountType;
+import fracture.detector.backend.analisi.frattura.AnalisiFrattura;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -40,5 +42,8 @@ public class User {
   @ManyToOne
   @JoinColumn(name = "account_type_id", nullable = false)
   private AccountType accountType;
+
+  @OneToMany(mappedBy = "user")
+  private Set<AnalisiFrattura> analisiFratture;
 
 }
