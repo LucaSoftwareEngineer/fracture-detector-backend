@@ -13,8 +13,9 @@ public class UserDetailsResponse {
     private String name;
     private String surname;
     private String type;
-    private int numeroAnalisiConFrattura;
-    private int numeroAnalisiSenzaFrattura;
-    private int percentualeMediaAccuratezzaAnalisi;
+    private Long numeroAnalisiTotali;
+    private Long numeroAnalisiSenzaFrattura;
+    private Long numeroAnalisiConFrattura;
+    private Long[] conteggiAnalisi;
 
 }

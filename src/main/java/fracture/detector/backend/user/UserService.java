@@ -1,6 +1,7 @@
 package fracture.detector.backend.user;
 
 import fracture.detector.backend.account.type.AccountTypeService;
+import fracture.detector.backend.analisi.frattura.AnalisiFratturaService;
 import fracture.detector.backend.config.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -15,6 +16,7 @@ public class UserService {
     private final JwtUtil jwtUtil;
     private final PasswordEncoder passwordEncoder;
     private final AccountTypeService accountTypeService;
+    private final AnalisiFratturaService analisiFratturaService;
 
     public RegisterResponse registerUser(RegisterRequest request) {
         String hashedPassword = passwordEncoder.encode(request.getPassword());
@@ -43,9 +45,10 @@ public class UserService {
         res.setName(user.getName());
         res.setSurname(user.getSurname());
         res.setType(user.getAccountType().getDescription());
-        res.setNumeroAnalisiConFrattura(0);
-        res.setNumeroAnalisiSenzaFrattura(0);
-        res.setPercentualeMediaAccuratezzaAnalisi(0);
+        res.setNumeroAnalisiTotali(analisiFratturaService.getNumeroAnalisiFratture(user));
+        res.setNumeroAnalisiSenzaFrattura(analisiFratturaService.getNumeroAnalisiFrattureSenzaFrattura(user));
+        res.setNumeroAnalisiConFrattura(analisiFratturaService.getNumeroAnalisiFrattureConFrattura(user));
+        res.setConteggiAnalisi(analisiFratturaService.getAnalisiPerMeseDiAnnoCorrente(user));
         return res;
     }
 

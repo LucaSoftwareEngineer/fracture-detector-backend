@@ -28,6 +28,7 @@ import java.lang.reflect.Type;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Year;
 import java.util.Base64;
 import java.util.List;
 import java.util.Random;
@@ -146,6 +147,30 @@ public class AnalisiFratturaService {
         List<AnalisiFratturaListResponse> listaAnalisiFratture = modelMapper.map(lista, listType);
 
         return listaAnalisiFratture;
+    }
+
+    public Long getNumeroAnalisiFratture(User user) {
+        return analisiFratturaRepository.contaNumeroAnalisiByUserId(user);
+    }
+
+    public Long getNumeroAnalisiFrattureConFrattura(User user) {
+        return analisiFratturaRepository.contaNumeroAnalisiConFratturaByUserId(user);
+    }
+
+    public Long getNumeroAnalisiFrattureSenzaFrattura(User user) {
+        return analisiFratturaRepository.contaNumeroAnalisiSenzaFratturaByUserId(user);
+    }
+
+    public Long[] getAnalisiPerMeseDiAnnoCorrente(User user) {
+        Long[] conteggi = new Long[12];
+        int anno = Year.now().getValue();
+        int i = 0;
+        while (i<12) {
+            int mese=i+1;
+            conteggi[i] = analisiFratturaRepository.contaAnalisiMeseDiAnnoCorrente(user, mese, anno);
+            i++;
+        }
+        return conteggi;
     }
 
 }
