@@ -39,6 +39,7 @@ public class SecurityConfig {
                                 .requestMatchers("/api/user/token/check").permitAll()
                                 .requestMatchers("/api/user/details").authenticated()
                                 .requestMatchers("/api/analisi/frattura/new").authenticated()
+                                .requestMatchers("/api/analisi/frattura/delete/**").authenticated()
                                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                                 .requestMatchers("/content/**").permitAll()
                                 .anyRequest().authenticated()

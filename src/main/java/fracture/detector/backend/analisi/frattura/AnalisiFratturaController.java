@@ -42,6 +42,21 @@ public class AnalisiFratturaController {
         }
     }
 
+    @DeleteMapping("/delete/{idAnalisi}/{idUser}")
+    public void eliminaAnalisiFrattura(@PathVariable Long idAnalisi, @PathVariable Long idUser, @RequestHeader("Authorization") String authHeader) throws AnalisiFratturaException {
+
+        String token = null;
+
+        if (authHeader != null && authHeader.startsWith("Bearer ")) {
+            token = authHeader.substring(7);
+        } else {
+            throw new AnalisiFratturaException();
+        }
+
+        analisiFratturaService.deleteAnalisiFrattura(idAnalisi, idUser, token);
+
+    }
+
 
 
 }

@@ -173,4 +173,18 @@ public class AnalisiFratturaService {
         return conteggi;
     }
 
+    public void deleteAnalisiFrattura(Long idAnalisi, Long idUser, String token) throws AnalisiFratturaException {
+        try {
+            User userById = userRepository.findById(idUser).get();
+            User userByToken = userRepository.findByUsername(jwtUtil.extractUsername(token)).get();
+            if ((userByToken == userById) && userById != null) {
+                analisiFratturaRepository.deleteById(idAnalisi);
+            } else {
+                throw new AnalisiFratturaException();
+            }
+        } catch (Exception e) {
+            throw new AnalisiFratturaException();
+        }
+    }
+
 }
