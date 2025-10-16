@@ -38,6 +38,7 @@ public class UserService {
             new UsernameNotFoundException("utente non trovato");
         }
         UserDetailsResponse res = new UserDetailsResponse();
+        res.setId(user.getIdUser());
         res.setUsername(user.getUsername());
         res.setName(user.getName());
         res.setSurname(user.getSurname());

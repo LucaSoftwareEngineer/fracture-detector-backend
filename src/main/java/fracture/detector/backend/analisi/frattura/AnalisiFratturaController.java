@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/analisi/frattura")
 @RequiredArgsConstructor
 public class AnalisiFratturaController {
