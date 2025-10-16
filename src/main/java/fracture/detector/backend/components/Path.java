@@ -10,6 +10,6 @@ import org.springframework.stereotype.Component;
 @Setter
 public class Path {
 
-    private String cloudPath = "F:\\DESKTOP\\WORKSPACE\\fracture-detector-backend\\src\\main\\resources\\public\\";
+    private String cloudPath = "F:\\DESKTOP\\WORKSPACE\\fracture-detector-backend\\uploads\\";
 
 }
