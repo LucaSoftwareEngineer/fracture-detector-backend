@@ -30,6 +30,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
+import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
@@ -78,12 +79,16 @@ public class AnalisiFratturaService {
     }
 
     public static String creaNomeFileLastraUnivoco(AnalisiFratturaRequest json) {
+        Random random = new Random();
+        int numeroCasuale = random.nextInt(900000) + 100000;
         int lunghezza = json.getFileLastra().toString().toLowerCase().length();
         String estensione = ".png";
         return json
                 .getDataAnalisi().toString().replace(":","")
                 .concat("-")
                 .concat(String.valueOf(json.getUserId()))
+                .concat("-")
+                .concat(String.valueOf(numeroCasuale))
                 .concat(estensione);
     }
 
